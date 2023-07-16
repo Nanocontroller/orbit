@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.2.1/aframe/build/aframe-ar.js"></script>
+  </head>
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs>
+      <a-marker-camera position="0 1.65 0">
+        
+      </a-marker-camera>
+      <!-- Asset definitions -->
+      <a-assets>
+        <img id="earth" src="assets/earth.png">
+      </a-assets>
+
+      <!-- Lighting -->
+      <a-light type="directional" position="2 4 3" intensity="0.8"></a-light>
+      <a-light type="ambient" color="#ffffff" intensity="0.2"></a-light>
+
+      <!-- Floor plane with earth texture -->
+      <a-plane
+        position="0 0 0"
+        rotation="-90 0 0"
+        width="35"
+        height="35"
+        material="src: #earth"
+      ></a-plane>
+       
+      <!-- 3D satellite model
+      <a-entity
+        gltf-model="url(assets/iss-export-from-three.glb)"
+        scale="0.5 0.5 0.5"
+        position="0 20 -20"
+        animation__orbit="property: rotation; to: 360 0 0; loop: true; dur: 10000; easing: linear"
+        animation__translate="property: position; to: 0 -25 0; dir: alternate; dur: 5000; easing: easeInOutQuad; loop: true"
+        orbit-controls="target: [floor]; enableDamping: true; dampingFactor: 0.1; minDistance: 10; maxDistance: 50"
+      ></a-entity> -->
+
+
+    <!-- 3D satellite model 1-->
+      <a-entity
+        gltf-model="url(assets/iss-export-from-three.glb)"
+        scale="0.05 0.05 0.05"
+        position="0 20 -20"
+         animation__orbit="property: rotation; to: 360 0  0; loop: true; dur: 100000; easing: linear"
+        animation__translate="property: position; to: 0 0 20; dir: alternate; dur: 50000; easing: easeInOutQuad; loop: true"
+        look-at="[camera]"
+        animation__rotate="property: rotation; to: 360 0  0; loop: true; dur: 100000"
+        orbit-controls="target: [camera]; enableDamping: true; dampingFactor: 0.1; minDistance: 50; maxDistance: 150"
+      ></a-entity> 
+      
+
+      
+    </a-scene>
+  </body>
+</html>
